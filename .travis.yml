@@ -1,0 +1,17 @@
+---
+dist: xenial
+language: python
+python: 2.7
+sudo: required
+services:
+  - docker
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y python-apt python-apt-common python-dev
+install:
+  - pip install psutil==5.4.6
+  - pip install ansible==2.7.10
+  - pip install molecule==2.20.1
+  - pip install docker
+script:
+  - molecule test
